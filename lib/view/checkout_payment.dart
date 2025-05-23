@@ -17,9 +17,18 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
         title: Text(
           'Checkout',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          style: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'SFPro'),
         ),
         centerTitle: true,
       ),
@@ -30,12 +39,18 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
           children: [
             Text(
               'Payment',
-              style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(height: 50),
             Text(
               'Payment method',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(height: 20),
 
@@ -64,10 +79,17 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                             SizedBox(
                               width: 10,
                             ),
-                            const Text('Card'),
+                            const Text(
+                              'Card',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'SFPro'),
+                            ),
                           ],
                         ),
                         leading: Radio(
+                          activeColor: Color(0xffFA4A0C),
                           value: option[0],
                           groupValue: currentOptions,
                           onChanged: (value) {
@@ -96,10 +118,17 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                             SizedBox(
                               width: 10,
                             ),
-                            const Text('Bank Account'),
+                            const Text(
+                              'Bank Account',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'SFPro'),
+                            ),
                           ],
                         ),
                         leading: Radio(
+                          activeColor: Color(0xffFA4A0C),
                           value: option[1],
                           groupValue: currentOptions,
                           onChanged: (value) {
@@ -116,7 +145,10 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
             SizedBox(height: 20),
             Text(
               'Delivery method.',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(height: 20),
             //second radio
@@ -127,8 +159,15 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                 child: Column(
                   children: <Widget>[
                     ListTile(
-                        title: const Text('Door delivery'),
+                        title: const Text(
+                          'Door delivery',
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'SFPro'),
+                        ),
                         leading: Radio(
+                          activeColor: Color(0xffFA4A0C),
                           value: option[0],
                           groupValue: currentOption,
                           onChanged: (value) {
@@ -142,8 +181,15 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                       child: Divider(thickness: .5),
                     ),
                     ListTile(
-                        title: const Text('Pick up'),
+                        title: const Text(
+                          'Pick up',
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'SFPro'),
+                        ),
                         leading: Radio(
+                          activeColor: Color(0xffFA4A0C),
                           value: options[1],
                           groupValue: currentOption,
                           onChanged: (value) {
@@ -163,7 +209,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 163, 20, 10),
+                  backgroundColor: const Color(0xffB52E2B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -177,8 +223,8 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'Quicksand'),
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'SFPro'),
                     ),
                   ],
                 ),

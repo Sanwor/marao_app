@@ -14,6 +14,12 @@ class MyApp extends StatelessWidget {
         // debugShowCheckedModeBanner: false,
         title: 'Foodie',
         theme: ThemeData(
+          fontFamily: 'Quicksand',
+          textTheme: const TextTheme(
+            bodyLarge: TextStyle(fontSize: 16),
+            bodyMedium: TextStyle(fontSize: 14),
+            titleLarge: TextStyle(fontWeight: FontWeight.bold),
+          ),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),

@@ -49,30 +49,42 @@ class _BottomNavPageState extends State<BottomNavPage> {
               index = newIndex;
             });
           },
-          selectedItemColor: Colors.red,
+          selectedItemColor: Color(0xffD73800),
           unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/home.svg',
                   colorFilter: ColorFilter.mode(
-                      index == 0 ? Colors.red : Colors.grey, BlendMode.srcIn)),
+                      index == 0 ? Color(0xffD73800) : Colors.grey,
+                      BlendMode.srcIn)),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/heart.svg',
                 colorFilter: ColorFilter.mode(
-                    index == 1 ? Colors.red : Colors.grey, BlendMode.srcIn),
+                    index == 1 ? Color(0xffD73800) : Colors.grey,
+                    BlendMode.srcIn),
               ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
+              icon: SvgPicture.asset(
+                'assets/user.svg',
+                colorFilter: ColorFilter.mode(
+                    index == 2 ? Color(0xffD73800) : Colors.grey,
+                    BlendMode.srcIn),
+              ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
+              icon: SvgPicture.asset(
+                'assets/history2.svg',
+                colorFilter: ColorFilter.mode(
+                    index == 3 ? Color(0xffD73800) : Colors.black,
+                    BlendMode.srcIn),
+              ),
               label: '',
             ),
           ],

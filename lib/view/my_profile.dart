@@ -13,106 +13,169 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => BottomNavPage(
+                  initialIndex: 0,
+                ),
+              ));
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
+      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.only(left: 50, top: 50, right: 50),
+          padding: EdgeInsets.only(left: 50, top: 20, right: 50),
           child: SafeArea(
               child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'My Profile',
+                '  My Profile',
                 style: TextStyle(
-                  fontSize: 34,
+                  fontFamily: 'SFPro',
                   fontWeight: FontWeight.w600,
+                  fontSize: 34,
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Row(
                 children: [
-                  Text(
-                    'Personal details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      'Personal details',
+                      style: TextStyle(
+                        fontFamily: 'SFPro',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    width: 100,
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => MyProfilePayment(),
-                        ));
-                      },
-                      child: Text('change'))
+                  // SizedBox(
+                  //   width: 100,
+                  // ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => MyProfilePayment(),
+                          ));
+                        },
+                        child: Text(
+                          'change',
+                          style: TextStyle(
+                              fontFamily: 'SFPro',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              color: Color(0xffFA4A0C)),
+                        )),
+                  )
                 ],
-              ),
-              SizedBox(
-                height: 10,
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  height: 200,
+                  height: 197,
                   width: 315,
                   color: Colors.white,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 10, left: 10, right: 5),
+                        child: Column(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15)),
-                                child: Image(
-                                  image: AssetImage(
-                                    'assets/toyface.jpg',
-                                  ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: SizedBox(
+                                height: 100,
+                                width: 95,
+                                child: Image.asset(
+                                  'assets/toyface.jpg',
                                   height: 100,
                                   width: 91,
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              children: [
-                                Title(
-                                  color: Colors.black,
-                                  child: Text(
-                                    'Martha da Silva',
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                Text('maraoburger@gmail.com'),
-                                SizedBox(
-                                  width: 200,
-                                  child: Divider(
-                                    color: Colors.black,
-                                    thickness: 1,
-                                    height: 20,
-                                  ),
-                                ),
-                                Text('+1 857 505-8956'),
-                                Text(
-                                    '43 Magnolia st,Malden\n02148 - perto da Ferry st'),
-                              ],
                             )
                           ],
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20, left: 1.4),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Title(
+                              color: Colors.black,
+                              child: Text(
+                                'Martha da Silva',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            Opacity(
+                                opacity: .5,
+                                child: Text('maraoburger@gmail.com')),
+                            SizedBox(
+                              width: 200,
+                              child: Opacity(
+                                opacity: .5,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 43),
+                                  child: Divider(
+                                    color: Colors.black,
+                                    thickness: .5,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Opacity(
+                              opacity: .5,
+                              child: Text(
+                                '+1 857 505-8956',
+                                style: TextStyle(
+                                  fontFamily: "Quicksand",
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 200,
+                              child: Opacity(
+                                opacity: .5,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 43),
+                                  child: Divider(
+                                    color: Colors.black,
+                                    thickness: .5,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Opacity(
+                              opacity: .5,
+                              child: Text(
+                                '43 Magnolia st,Malden\n02148 - perto da Ferry st',
+                                style: TextStyle(
+                                  fontFamily: "Quicksand",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -130,12 +193,10 @@ class _MyProfileState extends State<MyProfile> {
                     child: Row(
                       children: [
                         Expanded(
-                            child: Container(
-                          child: Text(
-                            'Order',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                          ),
+                            child: Text(
+                          'Orders',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
                         )),
                         Icon(Icons.arrow_forward_ios_rounded)
                       ],
@@ -157,12 +218,10 @@ class _MyProfileState extends State<MyProfile> {
                     child: Row(
                       children: [
                         Expanded(
-                            child: Container(
-                          child: Text(
-                            'Pending reviews',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                          ),
+                            child: Text(
+                          'Pending reviews',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
                         )),
                         Icon(Icons.arrow_forward_ios_rounded)
                       ],
@@ -184,12 +243,10 @@ class _MyProfileState extends State<MyProfile> {
                     child: Row(
                       children: [
                         Expanded(
-                            child: Container(
-                          child: Text(
-                            'Edit information',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                          ),
+                            child: Text(
+                          'Edit information',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
                         )),
                         Icon(Icons.arrow_forward_ios_rounded)
                       ],
@@ -211,12 +268,10 @@ class _MyProfileState extends State<MyProfile> {
                     child: Row(
                       children: [
                         Expanded(
-                            child: Container(
-                          child: Text(
-                            'Help',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                          ),
+                            child: Text(
+                          'Help',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
                         )),
                         Icon(Icons.arrow_forward_ios_rounded)
                       ],
@@ -239,7 +294,7 @@ class _MyProfileState extends State<MyProfile> {
                     ));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 163, 20, 10),
+                    backgroundColor: Color(0xffB52E2B),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

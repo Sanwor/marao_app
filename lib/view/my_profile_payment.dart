@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:foodie/view/bottom_nav.dart';
 // import 'package:foodie/view/bottom_nav.dart';
 
-
 class MyProfilePayment extends StatefulWidget {
   const MyProfilePayment({super.key});
 
@@ -16,9 +15,18 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
         title: Text(
           'My profile',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          style: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'SFPro'),
         ),
         centerTitle: true,
       ),
@@ -26,35 +34,99 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 50),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10),
-            // UserInfo
-            ListTile(
-              tileColor: Colors.white,
-              leading: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  child: Image(image: AssetImage('assets/toyface.jpg'))),
-              title: Text(
-                'Marvis Ighedosa',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
-              subtitle: Text(
-                'dosamarvis@gmail.com\nNo 15 uti street off ovie palace road effurun delta state',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
+            SizedBox(height: 20),
+            Text(
+              'Information',
+              style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
+            ),
+
+            SizedBox(
+              height: 10,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                color: Colors.white,
+                height: 113,
+                width: 315,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(right: 5, left: 10, top: 15),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/toyface.jpg',
+                                height: 60,
+                                width: 60,
+                              ))
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5, top: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Marvis Ighedosa',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'SFPro'),
+                          ),
+                          SizedBox(height: 3),
+                          Opacity(
+                            opacity: .5,
+                            child: Text(
+                              'dosamarvis@gmail.com',
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'SFPro'),
+                            ),
+                          ),
+                          SizedBox(height: 3),
+                          Opacity(
+                            opacity: .5,
+                            child: Text(
+                              'No 15 uti street off ovie palace\nroad effurun delta state',
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'SFPro'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: Column(
+                        children: [Icon(Icons.edit_outlined)],
+                      ),
+                    )
+                  ],
                 ),
               ),
-              trailing: Icon(Icons.edit_outlined),
             ),
+
             SizedBox(height: 50),
             //Payment Method
             Text(
               'Payment Method',
               style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-              ),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(height: 15),
             ClipRRect(
@@ -90,7 +162,13 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                                   )),
                             ),
                             SizedBox(width: 15),
-                            const Text('Card'),
+                            const Text(
+                              'Card',
+                              style: TextStyle(
+                                  fontFamily: 'SFPro',
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400),
+                            ),
                           ],
                         ),
                       ),
@@ -99,9 +177,12 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 50, right: 50),
-                        child: Divider(
-                          color: Colors.black,
-                          thickness: 1,
+                        child: Opacity(
+                          opacity: .5,
+                          child: Divider(
+                            color: Colors.black,
+                            thickness: .5,
+                          ),
                         ),
                       ),
                       RadioMenuButton(
@@ -125,7 +206,11 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                                           AssetImage('assets/banklogo.png'))),
                             ),
                             SizedBox(width: 15),
-                            const Text('Bank Account'),
+                            const Text('Bank Account',
+                                style: TextStyle(
+                                    fontFamily: 'SFPro',
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w400)),
                           ],
                         ),
                       ),
@@ -134,9 +219,12 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 50, right: 50),
-                        child: Divider(
-                          color: Colors.black,
-                          thickness: 1,
+                        child: Opacity(
+                          opacity: .5,
+                          child: Divider(
+                            color: Colors.black,
+                            thickness: .5,
+                          ),
                         ),
                       ),
                       RadioMenuButton(
@@ -160,7 +248,11 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                                   )),
                             ),
                             SizedBox(width: 15),
-                            const Text('Paypal'),
+                            const Text('Paypal',
+                                style: TextStyle(
+                                    fontFamily: 'SFPro',
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w400)),
                           ],
                         ),
                       ),
@@ -184,7 +276,7 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                   ));
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 163, 20, 10),
+                  backgroundColor: const Color(0xffB52E2B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -198,8 +290,8 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'Quicksand'),
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'SFPro'),
                     ),
                   ],
                 ),

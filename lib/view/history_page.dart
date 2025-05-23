@@ -13,10 +13,24 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text('History',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => BottomNavPage(
+                  initialIndex: 0,
+                ),
+              ));
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
+        title: Text('History',
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'SFPro')),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -30,14 +44,20 @@ class _HistoryPageState extends State<HistoryPage> {
             ),
             Text(
               'No history yet',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              'Hit the orange button down\nbelow to Create an order',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+              'Hit the orange button down\n  below to Create an order',
+              style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(
               height: 190,
@@ -54,7 +74,7 @@ class _HistoryPageState extends State<HistoryPage> {
                   ));
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 163, 20, 10),
+                  backgroundColor: const Color(0xffB52E2B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -69,7 +89,7 @@ class _HistoryPageState extends State<HistoryPage> {
                           color: Colors.white,
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          fontFamily: 'Quicksand'),
+                          fontFamily: 'SFPro'),
                     ),
                   ],
                 ),

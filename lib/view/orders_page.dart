@@ -13,10 +13,20 @@ class _OrdersPageState extends State<OrdersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text('Orders',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
+        title: Text('Orders',
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'SFPro')),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -30,14 +40,23 @@ class _OrdersPageState extends State<OrdersPage> {
             ),
             Text(
               'No orders yet',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'SFPro'),
             ),
             SizedBox(
               height: 20,
             ),
-            Text(
-              'Hit the orange button down\nbelow to Create an order',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+            Opacity(
+              opacity: .57,
+              child: Text(
+                'Hit the orange button down\n  below to Create an order',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'SFPro'),
+              ),
             ),
             SizedBox(
               height: 190,
@@ -54,7 +73,7 @@ class _OrdersPageState extends State<OrdersPage> {
                   ));
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 163, 20, 10),
+                  backgroundColor: const Color(0xffB52E2B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -68,8 +87,8 @@ class _OrdersPageState extends State<OrdersPage> {
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'Quicksand'),
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'SFPro'),
                     ),
                   ],
                 ),

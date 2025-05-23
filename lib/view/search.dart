@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:foodie/app_config/constant.dart';
@@ -16,10 +17,55 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Search',
-          style: TextStyle(fontWeight: FontWeight.w600),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
+
+        //search box
+        title: SizedBox(
+          height: 45,
+          child: TextField(
+            onChanged: (value) {
+              String query = value.toLowerCase();
+              if (value == "") {
+                setState(() {
+                  searchedResultList.clear();
+                });
+                return;
+              }
+
+              // Use a Set to avoid duplicates
+              final results = [
+                ...itemList,
+                ...itemList2,
+                ...itemList3,
+                ...itemList4,
+                ...itemList5
+              ]
+                  .where((item) {
+                    return item["title"]!.toLowerCase().contains(query);
+                  })
+                  .toSet()
+                  .toList(); // Convert Set back to List
+
+              setState(() {
+                searchedResultList = results;
+              });
+
+              debugPrint(searchedResultList.toString());
+            },
+            keyboardType: TextInputType.multiline,
+            autofocus: true,
+            decoration:
+                InputDecoration(border: InputBorder.none, hintText: "Search"),
+          ),
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -27,44 +73,6 @@ class _SearchPageState extends State<SearchPage> {
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
             children: [
-              TextField(
-                onChanged: (value) {
-                  String query = value.toLowerCase();
-                  if (value == "") {
-                    setState(() {
-                      searchedResultList.clear();
-                    });
-                    return;
-                  }
-
-                  // Use a Set to avoid duplicates
-                  final results = [
-                    ...itemList,
-                    ...itemList2,
-                    ...itemList3,
-                    ...itemList4,
-                    ...itemList5
-                  ]
-                      .where((item) {
-                        return item["title"]!.toLowerCase().contains(query);
-                      })
-                      .toSet()
-                      .toList(); // Convert Set back to List
-
-                  setState(() {
-                    searchedResultList = results;
-                  });
-
-                  debugPrint(searchedResultList.toString());
-                },
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100)),
-                  hintText: "Search",
-                  prefixIcon: Icon(Icons.search),
-                ),
-              ),
               SizedBox(
                 height: 30,
               ),
@@ -92,16 +100,23 @@ class _SearchPageState extends State<SearchPage> {
                           Text(
                             "Item not found",
                             style: TextStyle(
-                                fontSize: 28, fontWeight: FontWeight.w600),
+                                fontFamily: 'SFProRounded',
+                                fontSize: 28,
+                                fontWeight: FontWeight.w600),
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                          Text(
-                            "Try searching the item with a different keyword.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.w400),
+                          Opacity(
+                            opacity: .57,
+                            child: Text(
+                              "Try searching the item with\na different keyword.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontFamily: 'SFProRounded',
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400),
+                            ),
                           )
                         ],
                       ),
@@ -135,6 +150,8 @@ class _SearchPageState extends State<SearchPage> {
                                   ));
                                 },
                                 child: Container(
+                                  height: 250,
+                                  width: 10,
                                   color: Colors.white,
                                   alignment: Alignment.center,
                                   child: Column(
@@ -160,19 +177,52 @@ class _SearchPageState extends State<SearchPage> {
                                               .toString(),
                                           style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 15,
+                                            fontSize: 13,
                                             fontWeight: FontWeight.w400,
                                           ),
                                           textAlign: TextAlign.center,
                                         ),
                                       ),
-                                      Text(
-                                        searchedResultList[index]["price"]
-                                            .toString(),
-                                        style: TextStyle(
-                                          color: Colors.red,
-                                          fontSize: 20,
-                                        ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 0,
+                                                left: 0,
+                                                bottom: 10,
+                                                right: 5),
+                                            child: Column(
+                                              children: [
+                                                Text('\$',
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xffB52E2B),
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        fontFamily:
+                                                            'Quicksand'))
+                                              ],
+                                            ),
+                                          ),
+                                          Column(
+                                            children: [
+                                              Text(
+                                                searchedResultList[index]
+                                                        ["price"]
+                                                    .toString(),
+                                                style: TextStyle(
+                                                    color: Color(0xffB52E2B),
+                                                    fontSize: 20,
+                                                    fontFamily: 'Quicksand',
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),

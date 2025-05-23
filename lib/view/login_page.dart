@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:foodie/view/bottom_nav.dart';
 // import 'package:foodie/view/home_page.dart';
 
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                           bottomLeft: Radius.circular(40),
                           bottomRight: Radius.circular(40)),
                       child: Image(
-                        image: AssetImage('assets/burger.webp'),
+                        image: AssetImage('assets/brazilian-burger.png'),
                         height: 382,
                         width: 414,
                         fit: BoxFit.cover,
@@ -50,8 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 382,
                         width: 414,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 189, 16, 4)
-                              .withValues(alpha: 0.8),
+                          color: const Color(0xffA8201D).withValues(alpha: 0.8),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(40),
                               bottomRight: Radius.circular(40)),
@@ -72,24 +72,41 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 50),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 50, right: 50, top: 350),
+                            left: 50, right: 50, top: 340),
                         child: Row(
                           children: [
-                            Icon(Icons.lock, color: Colors.white),
+                            SvgPicture.asset(
+                              'assets/unlock.svg',
+                              height: 17,
+                              width: 16,
+                            ),
+                            SizedBox(width: 6),
                             Text(
                               'Login',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Quicksand'),
                             ),
                             SizedBox(
-                              width: 100,
+                              width: 98,
                             ),
-                            Icon(Icons.person_add_alt_1_rounded,
-                                color: Colors.white),
+                            Icon(
+                              Icons.person_add_alt_1_rounded,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                            SizedBox(width: 6),
                             Text('Sign-up',
-                                style: TextStyle(color: Colors.white)),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Quicksand')),
                           ],
                         ),
                       ),
@@ -98,8 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: 25,
+                height: 50,
               ),
+
+              //email
               Padding(
                 padding: const EdgeInsets.only(left: 50, right: 50, bottom: 50),
                 child: TextFormField(
@@ -113,10 +132,11 @@ class _LoginPageState extends State<LoginPage> {
                       )),
                 ),
               ),
+
+              //password
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 50,
-                  right: 50,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 50,
                 ),
                 child: TextFormField(
                   obscureText: true,
@@ -131,14 +151,14 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 35,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Text(
-                  'Forgot Passcode?',
+                  'Forgot passcode?',
                   style: TextStyle(
-                    color: Colors.red,
+                    color: Color(0xffB52E2B),
                     fontWeight: FontWeight.w400,
                     fontSize: 17,
                     fontFamily: 'Quicksand',
@@ -161,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                       ));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: Color(0xffB52E2B),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -169,9 +189,10 @@ class _LoginPageState extends State<LoginPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.lock,
-                          color: Colors.white,
+                        SvgPicture.asset(
+                          'assets/unlock.svg',
+                          height: 17,
+                          width: 16,
                         ),
                         SizedBox(width: 8),
                         Text(

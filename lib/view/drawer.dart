@@ -1,4 +1,7 @@
+//poppins wala package halna baki cha
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:foodie/view/bottom_nav.dart';
 import 'package:foodie/view/login_page.dart';
 import 'package:foodie/view/my_offers.dart';
@@ -24,14 +27,17 @@ class MyDrawer extends StatelessWidget {
 
   Widget buildheader(BuildContext context) => Container();
   Widget buildMenuItems(BuildContext context) => Container(
-        padding: EdgeInsets.all(24),
+        padding: EdgeInsets.only(left: 24, top: 100),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Wrap(
             runSpacing: 10,
             children: [
               ListTile(
-                leading: Icon(Icons.person_outline),
+                leading: SvgPicture.asset(
+                  'assets/profile.svg',
+                  color: Colors.black,
+                ),
                 title: Text('Profile'),
                 onTap: () {
                   Navigator.pop(context);
@@ -45,11 +51,14 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Divider(
                   color: Colors.black,
-                  thickness: .5,
+                  thickness: .3,
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.add_shopping_cart_outlined),
+                leading: SvgPicture.asset(
+                  'assets/buy.svg',
+                  color: Colors.black,
+                ),
                 title: Text('orders'),
                 onTap: () {
                   Navigator.of(context).push(
@@ -60,7 +69,7 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Divider(
                   color: Colors.black,
-                  thickness: .5,
+                  thickness: .3,
                 ),
               ),
               ListTile(
@@ -77,7 +86,7 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Divider(
                   color: Colors.black,
-                  thickness: .5,
+                  thickness: .3,
                 ),
               ),
               ListTile(
@@ -89,16 +98,19 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Divider(
                   color: Colors.black,
-                  thickness: .5,
+                  thickness: .3,
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.security_outlined),
+                leading: SvgPicture.asset(
+                  'assets/security.svg',
+                  color: Colors.black,
+                ),
                 title: Text('Security'),
                 onTap: () {},
               ),
               SizedBox(
-                height: 250,
+                height: 200,
               ),
               TextButton.icon(
                 onPressed: () {
@@ -110,9 +122,12 @@ class MyDrawer extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black),
+                      color: Color(0xffD73800)),
                 ),
-                icon: Icon(Icons.arrow_forward_outlined),
+                icon: Icon(
+                  Icons.arrow_forward_outlined,
+                  color: Color(0xffD73800),
+                ),
               )
             ],
           ),
