@@ -29,16 +29,22 @@ class _MyOffersState extends State<MyOffers> {
             SizedBox(
               height: 30,
             ),
-            Text(
-              'My Offers',
-              style: TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
+            Center(
+              child: Text(
+                'My Offers',
+                style: TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
+              ),
             ),
             SizedBox(
               height: 300,
             ),
             Text(
               'ohh snap!  No offers yet',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             SizedBox(height: 10),
             Padding(
