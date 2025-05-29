@@ -84,7 +84,7 @@ class _MyProfileState extends State<MyProfile> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 197,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Row(
                     children: [
@@ -186,7 +186,7 @@ class _MyProfileState extends State<MyProfile> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 60,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -211,7 +211,7 @@ class _MyProfileState extends State<MyProfile> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 60,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -236,7 +236,7 @@ class _MyProfileState extends State<MyProfile> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 60,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -261,7 +261,7 @@ class _MyProfileState extends State<MyProfile> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 60,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),

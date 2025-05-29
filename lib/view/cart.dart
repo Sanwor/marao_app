@@ -100,7 +100,7 @@ class _CartPageState extends State<CartPage> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 102,
-                  width: 316,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Row(
                     children: [
@@ -221,7 +221,7 @@ class _CartPageState extends State<CartPage> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 102,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Row(
                     children: [
@@ -333,7 +333,7 @@ class _CartPageState extends State<CartPage> {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 102,
-                  width: 315,
+                  width: double.infinity,
                   color: Colors.white,
                   child: Row(
                     children: [

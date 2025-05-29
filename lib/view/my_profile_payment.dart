@@ -133,7 +133,7 @@ class _MyProfilePaymentState extends State<MyProfilePayment> {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               child: Container(
                 height: 260,
-                width: 315,
+                width: double.infinity,
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),

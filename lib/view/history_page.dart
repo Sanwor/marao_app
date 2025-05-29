@@ -33,69 +33,72 @@ class _HistoryPageState extends State<HistoryPage> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 180,
-            ),
-            Image(image: AssetImage('assets/history.png')),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'No history yet',
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'SFPro'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Hit the orange button down\n  below to Create an order',
-              style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'SFPro'),
-            ),
-            SizedBox(
-              height: 190,
-            ),
-            SizedBox(
-              width: 314,
-              height: 70,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => BottomNavPage(
-                      initialIndex: 0,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 180,
+              ),
+              Image(image: AssetImage('assets/history.png')),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'No history yet',
+                style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'SFPro'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Hit the orange button down\n  below to Create an order',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'SFPro'),
+              ),
+              SizedBox(
+                height: 190,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 70,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => BottomNavPage(
+                        initialIndex: 0,
+                      ),
+                    ));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xffB52E2B),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                  ));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xffB52E2B),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 8),
+                      Text(
+                        'Start Ordering',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'SFPro'),
+                      ),
+                    ],
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 8),
-                    Text(
-                      'Start Ordering',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'SFPro'),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -176,7 +176,7 @@ class _CheckoutDeliveryState extends State<CheckoutDelivery> {
             SizedBox(height: 50),
             //button
             SizedBox(
-              width: 314,
+              width: double.infinity,
               height: 70,
               child: ElevatedButton(
                 onPressed: () {
